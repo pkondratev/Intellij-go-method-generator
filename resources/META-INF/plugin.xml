@@ -1,0 +1,51 @@
+<idea-plugin>
+  <id>com.kondratevpavel.plugins.goland.gomethodgenerator</id>
+  <name>Go method generator</name>
+  <version>1.0</version>
+  <vendor email="pavelgeme2@gmail.com" url="https://bobbykitten.github.io">Kondratev Pavel</vendor>
+
+  <description><![CDATA[
+      You can use this plugin to simplify creating methods for structs in GoLang.<br>
+      Type (StructName).(MethodName with signature) and press CTRL + ALT + SHIFT + G (may be changed in settings).<br>
+      <b>For example:</b><br>
+      <code>
+        type MyStruct struct {}<br>
+        MyStruct.MyMethod<br>
+        MyStruct.MyMethod()<br>
+        MyStruct.MyMethod(s string)<br>
+        MyStruct.MyMethod(s string) string<br>
+        and so on...
+      </code><br>
+      If there is no such struct nothing will happen.
+    ]]></description>
+
+  <change-notes><![CDATA[
+      Changes:<br>
+      <em>1.0 - Release.</em>
+    ]]>
+  </change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="162.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+
+  -->
+    <depends>com.intellij.modules.lang</depends>
+
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+  <actions>
+    <!-- Add your actions here -->
+    <action id="generate_go_method" class="GenerateGoMethodsClass" text="GenerateGoMethods"
+            description="Generate Go Methods">
+      <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl alt G"/>
+    </action>
+  </actions>
+
+</idea-plugin>
